@@ -26,8 +26,14 @@ typedef struct sm95_device* sm95_dev_t;
 /* sm9541 register value */
 #define SM9541_MAXCOUNT         14745
 #define SM9541_MINCOUNT         1638
-#define SM9541_I2C_BUS          "i2c2"           /* i2c linked */            
-#define SM9541_DEVICE_NAME      "sm9541_sensor"  /* register sensor device name*/     
+
+#ifdef PKG_SM9541_DEVICE_NAME
+#define SM9541_I2C_BUS          PKG_SM9541_DEVICE_NAME           /* i2c linked */
+#else
+#define SM9541_I2C_BUS          "i2c2"           /* i2c linked */
+#endif
+
+#define SM9541_DEVICE_NAME      "sm9541_sensor"  /* register sensor device name*/
     
 /* sm9541 dev info for RT-Thread sensor device   */
 #define SM9541_PRESSURE_MAX     980.7  /*980.7*/
